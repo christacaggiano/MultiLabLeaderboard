@@ -1,10 +1,10 @@
 rm(list=ls()) 
 
-setwd('XXXXX')
+setwd('/Users/christacaggiano/Documents/UCLA_year3/MultiLabLeaderboard')
 
 
 library('googlesheets4')
-library('googlesheets')
+#library('googlesheets')
 library('rcrossref')
 library('dplyr')
 library('ggplot2')

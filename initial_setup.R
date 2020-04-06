@@ -1,17 +1,17 @@
 rm(list=ls()) 
 
-YOURemail='XXXXXXX@gmail.com'  #must be the email associated with hour google drive
-labname <- 'XXXXXLab'
-PIname='XXXXXXX'  #this is the handle of the PI on slack
-setwd('XXXXXXXX')
+YOURemail='christacaggiano@gmail.com'  #must be the email associated with hour google drive
+labname <- 'ZaitlenLab'
+PIname='nzaitlen'  #this is the handle of the PI on slack
+setwd('/Users/christacaggiano/Documents/UCLA_year3/MultiLabLeaderboard')
 
+# devtools::install_github("tidyverse/googlesheets4")
 
-
-#devtools::install_github("tidyverse/googlesheets4")
 secret_file_path <- './secretsDONOTSHARE/'
 
 library('filesstrings')
-library('googlesheets4')
+library("googlesheets4")
+
 
 # This will get a token to access your google sheets !!!!! DO NOT EVER SHARE OR POST OR PUSH THE TOKEN
 sheets_auth(email = YOURemail)
@@ -32,6 +32,8 @@ sheets_has_token()
 raw_data <- data.frame(handle='na', date='na', text='na')
 read <- data.frame(doi='na', handle='na', date='na', recommend='na', comments='na')
 read_only_doi <- data.frame(url='na',title='na',authors='na',doi='na',is_valid_doi='FALSE')
+
+
 
 ss <- sheets_create( "DB-leaderboard", sheets = list(read=read, read_only_doi=read_only_doi, raw_data=raw_data))
 temp <- sheets_get(ss)
